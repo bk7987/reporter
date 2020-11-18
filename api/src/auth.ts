@@ -32,3 +32,7 @@ export async function requireAuth(req: Request, _res: Response, next: NextFuncti
   req.userId = user.uid;
   next();
 }
+
+export async function addOrganizationClaim(userId: string, organizationId: string) {
+  await firebase.auth().setCustomUserClaims(userId, { organizationId });
+}
