@@ -19,17 +19,17 @@ services:
     volumes:
       - /app/node_modules
       - ./api:/app
-  client:
-    depends_on:
-      - api
-    build:
-      context: ./web
-      dockerfile: Dockerfile.dev
-    ports:
-      - 3000:3000
-      - 3001:3001
-    volumes:
-      - /app/node_modules
-      - ./web:/app
+  # client:
+  #   depends_on:
+  #     - api
+  #   build:
+  #     context: ./client
+  #     dockerfile: Dockerfile.dev
+  #   ports:
+  #     - 3000:3000
+  #     - 3001:3001
+  #   volumes:
+  #     - /app/node_modules
+  #     - ./client:/app
 volumes:
   pgdata-reporter:
