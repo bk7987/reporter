@@ -18,6 +18,7 @@ module.exports = {
       green: colors.lime,
       gray: colors.gray,
       blue: colors.cyan,
+      red: colors.red,
       white: '#fff',
       black: '#000',
       transparent: 'transparent',
@@ -26,7 +27,9 @@ module.exports = {
     extend: {},
   },
   variants: {
-    extend: {},
+    extend: {
+      backgroundColor: ['disabled'],
+    },
   },
   plugins: [],
 };

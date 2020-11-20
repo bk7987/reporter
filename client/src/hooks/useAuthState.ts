@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { setAuthStateListener } from '../auth';
+import { noUser, setAuthStateListener } from '../auth';
 import { User } from '../models';
 
 interface UseAuthStateOptions {
@@ -7,12 +7,11 @@ interface UseAuthStateOptions {
 }
 
 export const useAuthState = (
-  initialUser: User,
   options: UseAuthStateOptions = {
     autoLogin: false,
   }
 ) => {
-  const [user, setUser] = useState(initialUser);
+  const [user, setUser] = useState(noUser);
 
   const onAuthStateChanged = (newUser: User) => {
     setUser(newUser);

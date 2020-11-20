@@ -56,3 +56,17 @@ export async function login(email: string, password: string): Promise<Error | nu
   }
   return null;
 }
+
+export function logout() {
+  return firebase.auth().signOut();
+}
+
+export function userIsNone(user: User) {
+  return user.email === noUser.email && user.id === noUser.id && user.token == noUser.token;
+}
+
+export async function getCurrentUser() {
+  const user = firebase.auth().currentUser;
+  const token = user ? await user.getIdToken() : '';
+  return mapUser(user, token);
+}
